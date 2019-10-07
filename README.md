@@ -15,7 +15,7 @@ export const rootReducer = combineReducers({
 });
 ```
 
-Шаг 2. Оберните в `PaginationInitContainer` компонент-контейнер, в котором мы достаём данные из `store`. Обязательным параметром `PaginationInitContainer` является `paginationName` - это имя, которе будет записано в `store`.
+Шаг 2. Оберните в `PaginationInitContainer` компонент-контейнер, в котором вы достаёте данные из `store`. Обязательным параметром `PaginationInitContainer` является `paginationName` - это имя, которе будет записано в `store`.
 
 ```javascript
 import React from "react";
@@ -30,15 +30,38 @@ export const WithParamsListPage = () => (
 );
 ```
 
-| Exported                |                Type |
-| ----------------------- | ------------------: |
-| PAGINATION_SET_PARAMS   |         action-type |
-| PAGINATION_DELETED      |         action-type |
-| setPaginationPage       |              action |
-| deletePagination        |              action |
+| Exported                |        Type         |
+| :---------------------- | :-----------------: |
+| PAGINATION_SET_PARAMS   |     action-type     |
+| PAGINATION_DELETED      |     action-type     |
+| setPaginationPage       |       action        |
+| deletePagination        |       action        |
 | PaginationInitContainer | component-container |
-| paginationReducer       |             reducer |
+| paginationReducer       |       reducer       |
 
 ### setPaginationPage: function({ paginationName, params })
 
-Для изменения состояния пагинации используется экшн `setPaginationPage`. Параметрами данной функции являются: имя пагинации `paginationName: string` и объект с параметрами `params: { paramName, paramValue }`.
+Action для изменения состояния пагинации
+
+#### Параметры:
+
+- `paginationName: string` - название пагинации. Будет записано в store
+- `params: object` - изменяемые данные пагинации. Объект должен иметь вид: `params: { paramName, paramValue }`
+
+### deletePagination: function({ paginationName })
+
+Action для удаления пагинации из store
+
+#### Параметры:
+
+- `paginationName: string` - название пагинации. Именно она будет удалена из store
+
+### PaginationInitContainer
+
+Контейнер для инициализации пагинации.
+
+#### Параметры:
+
+- `paginationName: string` - название пагинации. Будет записано в store
+- `paramName: string` - название изменяемого параметра пагинации. По умолчанию равно `page`
+- `saveParams: bool` - флаг, который указывает сохранять в `store` текущую пагинацию при `componentWillUnmount` или нет. По умолчанию равен `false`.
