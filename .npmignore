@@ -1,2 +1,4 @@
+.gitignore
+public/
 src/example/
 node_modules/
