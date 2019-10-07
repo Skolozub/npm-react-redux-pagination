@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
 import { store } from "./constants/store";
-import { history } from "./constants/global";
+import { history } from "./constants/history";
 import { Reset } from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 import { App } from "./app";

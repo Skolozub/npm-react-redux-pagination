@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { routerMiddleware } from "connected-react-router";
 import { rootReducer } from "../reducers/rootReducer";
-import { history } from "../constants/global";
+import { history } from "./history";
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import queryString from "query-string";
 import { connect } from "react-redux";
+import Utils from "../../utils";
 import { Pagination } from "../components/organizms/pagination";
 import { ListContainer } from "./list-container";
 
 class WithParamsListContainer extends Component {
   static getParams = props => {
     const { location, page } = props;
-    const newParams = queryString.parse(location.search);
+    const newParams = Utils.parseSearch(location.search);
     return { ...newParams, page };
   };
 
@@ -31,7 +31,6 @@ class WithParamsListContainer extends Component {
   render = () => {
     const { params } = this.state;
     const { totalPages, location, paramName } = this.props;
-    console.log(this.state);
 
     return (
       <>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import queryString from "query-string";
+import Utils from "../../../utils";
 import styled from "styled-components";
 
 export const Pagination = props => {
@@ -16,7 +16,7 @@ export const Pagination = props => {
     <Wrapper>
       <PrevBtn
         as={currentPage === 1 ? NotActiveBtn : Link}
-        to={`${pathname}?${queryString.stringify({
+        to={`${pathname}${Utils.stringifySearch({
           ...params,
           [paramName]: currentPage - 1
         })}`}
@@ -28,7 +28,7 @@ export const Pagination = props => {
         <PageBtn
           key={index}
           as={currentPage === index + 1 && CurrentPage}
-          to={`${pathname}?${queryString.stringify({
+          to={`${pathname}${Utils.stringifySearch({
             ...params,
             [paramName]: index + 1
           })}`}
@@ -39,7 +39,7 @@ export const Pagination = props => {
 
       <NextBtn
         as={currentPage === totalPages ? NotActiveBtn : Link}
-        to={`${pathname}?${queryString.stringify({
+        to={`${pathname}${Utils.stringifySearch({
           ...params,
           [paramName]: currentPage + 1
         })}`}

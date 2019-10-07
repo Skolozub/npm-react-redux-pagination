@@ -1,10 +1,10 @@
 class Utils {
-  parseSearch = obj =>
+  stringifySearch = obj =>
     `?${Object.entries(obj)
       .map(([key, value]) => key && `${key}=${value}`)
       .join("&")}`;
 
-  stringifySearch = str =>
+  parseSearch = str =>
     decodeURIComponent(str)
       .slice(1)
       .split("&")
