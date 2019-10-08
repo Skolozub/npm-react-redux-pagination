@@ -1,6 +1,6 @@
 {
-  "name": "skolozub-react-redux-pagination",
-  "version": "0.0.1",
+  "name": "@skolozub/react-redux--pagination",
+  "version": "0.0.3",
   "description": "Redux pagination for React SPA Apps",
   "keywords": [],
   "main": "./src/example/index.js",
