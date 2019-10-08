@@ -7,7 +7,7 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import { history } from "../constants/history";
 
-import { paginationReducer } from "@skolozub/react-redux-pagination";
+import { paginationReducer } from "@skolozub/react-redux--pagination";
 
 export const rootReducer = combineReducers({
   router: connectRouter(history),
@@ -21,7 +21,7 @@ export const rootReducer = combineReducers({
 import React from "react";
 import WithParamsListContainer from "../../containers/with-params-list-container";
 
-import { PaginationInitContainer } from "@skolozub/react-redux-pagination";
+import { PaginationInitContainer } from "@skolozub/react-redux--pagination";
 
 export const WithParamsListPage = () => (
   <PaginationInitContainer paginationName="withparams">
