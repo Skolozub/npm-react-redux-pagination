@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { connect } from "react-redux";
 import queryString from "query-string";
 import {
@@ -15,31 +15,33 @@ class PaginationInitContainer extends Component {
 
   // -----------------Methods-------------------
 
-  setPageToStore = location => {
+  setPageToStore(location) {
     const { paginationName, paramName = "page", setPageHandler } = this.props;
     const params = queryString.parse(location.search);
     setPageHandler({
       paginationName,
       params: { paramName, paramValue: params[paramName] || "1" }
     });
-  };
+  }
 
   // ----------------Lifecycle------------------
 
-  componentDidUpdate = prevProps => {
+  componentDidUpdate(prevProps) {
     const { location } = this.props;
     const paramsHasChanged = prevProps.location.search !== location.search;
     if (!paramsHasChanged) return null;
 
     this.setPageToStore(location);
-  };
+  }
 
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     const { paginationName, deletePaginationHandler, saveParams } = this.props;
     if (!saveParams) deletePaginationHandler({ paginationName });
-  };
+  }
 
-  render = () => <>{this.props.children}</>;
+  render() {
+    return this.props.children;
+  }
 }
 
 const mapStateToProps = state => ({

@@ -1,6 +1,6 @@
 {
   "name": "@skolozub/react-redux--pagination",
-  "version": "0.0.3",
+  "version": "0.0.10",
   "description": "Redux pagination for React SPA Apps",
   "keywords": [],
   "main": "./src/example/index.js",
@@ -34,10 +34,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }
